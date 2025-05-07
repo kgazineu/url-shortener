@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: ./url-shortener-back
+    ports:
+      - "8080:8080" 
+    environment:
+      - NODE_ENV=production 
+
+  frontend:
+    build:
+      context: ./url-shortener-front
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
